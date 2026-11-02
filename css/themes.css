@@ -1,0 +1,62 @@
+/* All colour decisions live here. Both themes are designed, not inverted. */
+:root,
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#080808;
+  --surface:#111111;
+  --surface-2:#171717;
+  --surface-3:#1f1f1f;
+  --text:#F2F2F2;
+  --text-2:#999999;
+  --text-3:#666666;
+  --border:#292929;
+  --border-strong:#3d3d3d;
+  --accent:#F2F2F2;
+  --on-accent:#080808;
+  --glass:rgba(17,17,17,.72);
+  --grid:rgba(255,255,255,.035);
+  --vignette:rgba(255,255,255,.05);
+  --shadow:0 24px 60px -28px rgba(0,0,0,.9);
+  --overlay:rgba(8,8,8,.86);
+  --badge-frame:#F2F2F2;
+  --badge-strap:#161616;
+  --badge-strap-line:#2c2c2c;
+  --badge-text:#8a8a8a;
+  --photo-filter:grayscale(1) contrast(1.08);
+  --lit:rgba(255,255,255,.95);
+  --glow:rgba(255,255,255,.22);
+  --ok:#8fd3a0;
+  --err:#ff8c8c;
+}
+:root[data-theme="light"]{
+  color-scheme:light;
+  --bg:#F4F3F0;
+  --surface:#FFFFFF;
+  --surface-2:#ECEAE6;
+  --surface-3:#E2E0DB;
+  --text:#0E0E0E;
+  --text-2:#5A5A5A;
+  --text-3:#8C8C8C;
+  --border:#D8D6D0;
+  --border-strong:#BDBAB2;
+  --accent:#0E0E0E;
+  --on-accent:#F4F3F0;
+  --glass:rgba(255,255,255,.76);
+  --grid:rgba(0,0,0,.055);
+  --vignette:rgba(0,0,0,.035);
+  --shadow:0 24px 60px -30px rgba(40,36,28,.35);
+  --overlay:rgba(244,243,240,.9);
+  --badge-frame:#121212;
+  --badge-strap:#121212;
+  --badge-strap-line:#121212;
+  --badge-text:#bdbdbd;
+  --photo-filter:grayscale(1) contrast(1.02);
+  --lit:rgba(0,0,0,.6);
+  --glow:rgba(255,255,255,.2);
+  --ok:#1f7a3a;
+  --err:#b3261e;
+}
+/* smooth theme change; only colours, and only while toggling */
+:root.theme-anim *,:root.theme-anim *::before,:root.theme-anim *::after{
+  transition:background-color .45s ease,color .45s ease,border-color .45s ease,fill .45s ease,stroke .45s ease!important;
+}

@@ -1,0 +1,85 @@
+/* Motion system, derived from frame-by-frame study of the reference recording.
+   Timeline (reference ≈ seconds): 0.3 icons pop · 1.2/1.6 title lines rise · 2.2 url pill · 3.0 curtain exits ·
+   3.3 hero entrance (line-masked headline, staggered rest) · 3.6 badge drops and swings.
+   Section content re-plays on every entry; tab panels cross-fade then stagger in. */
+:root{--d-reveal:.85s;--d-stagger:90ms}
+
+/* ---------- intro ---------- */
+.preloader{position:fixed;inset:0;z-index:300;background:#080808;color:#F2F2F2;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;padding:24px;
+  animation:pre-out .95s 3s var(--ease-io) forwards}
+.no-intro .preloader{display:none}
+.pre__icons{display:flex;gap:14px}
+.pre__icons span{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:#171717;border:1px solid #2c2c2c;font-size:1rem;opacity:0;transform:scale(.4);
+  animation:pop .6s var(--ease) forwards}
+.pre__icons span:nth-child(1){animation-delay:.3s}.pre__icons span:nth-child(2){animation-delay:.45s}.pre__icons span:nth-child(3){animation-delay:.6s}
+.pre__title{text-align:center;font:800 clamp(1.4rem,5.4vw,2.2rem)/1.15 var(--font-display);letter-spacing:-.02em}
+.pre__line{display:block;overflow:hidden;padding-bottom:.1em}
+.pre__line>span{display:block;opacity:0;transform:translateY(110%);filter:blur(6px);animation:line-in .8s var(--ease) forwards}
+.pre__line:nth-child(1)>span{animation-delay:1.1s}.pre__line:nth-child(2)>span{animation-delay:1.5s}
+.pre__url{font:500 .72rem/1 var(--font-mono);color:#8a8a8a;padding:8px 14px;border-radius:999px;border:1px solid #2c2c2c;background:#111;opacity:0;animation:fade .6s 2.2s ease forwards}
+@keyframes pop{to{opacity:1;transform:none}}
+@keyframes line-in{to{opacity:1;transform:none;filter:none}}
+@keyframes fade{to{opacity:1}}
+@keyframes pre-out{to{transform:translateY(-100%);visibility:hidden}}
+.preloader.is-gone{display:none}
+
+/* ---------- reveal (sections replay on entry) ---------- */
+.js [data-r]{opacity:0;transform:translate3d(0,22px,0);transition:opacity var(--d-reveal) var(--ease),transform var(--d-reveal) var(--ease);transition-delay:calc(var(--i,0) * var(--d-stagger) + 60ms)}
+.js .display[data-r]{filter:blur(6px);transition-property:opacity,transform,filter}
+.js .is-in [data-r],.js [data-r].is-in{opacity:1;transform:none}
+.js .is-in .display[data-r]{filter:none}
+.js .mask__in{transform:translate3d(0,108%,0);transition:transform 1s var(--ease);transition-delay:calc(var(--i,0) * 120ms + 60ms)}
+.js .is-in .mask__in{transform:none}
+.caret{animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+
+/* ---------- tabs ---------- */
+.panel.is-leave{opacity:0;transform:translate3d(0,6px,0);transition:opacity .2s ease,transform .2s ease}
+.panel.is-enter .stagger>*,.panel.is-enter .tech-group{animation:rise .65s var(--ease) both;animation-delay:calc(var(--i,0) * 55ms)}
+@keyframes rise{from{opacity:0;transform:translate3d(0,18px,0) scale(.97)}to{opacity:1;transform:none}}
+
+/* ---------- project detail / lightbox ---------- */
+.detail{opacity:0;transform:translate3d(0,14px,0) scale(.985);transition:opacity .45s var(--ease),transform .55s var(--ease)}
+.detail.is-open{opacity:1;transform:none}
+.detail.is-open .detail__in>*{animation:rise .7s var(--ease) both}
+.detail.is-open .detail__in>*:nth-child(2){animation-delay:.08s}
+.lightbox{opacity:0;transition:opacity .3s ease}
+.lightbox.is-open{opacity:1}
+.lightbox__fig{transform:scale(.94);transition:transform .45s var(--ease)}
+.lightbox.is-open .lightbox__fig{transform:none}
+
+/* ---------- menu ---------- */
+.menu:not([hidden]){animation:menu-in .45s var(--ease) both}
+.menu:not([hidden]) a{animation:rise .5s var(--ease) both;animation-delay:calc(var(--i) * 50ms + 60ms)}
+@keyframes menu-in{from{opacity:0;transform:translate3d(0,-8px,0) scale(.98)}to{opacity:1;transform:none}}
+
+/* ---------- hero entrance (plays after the intro curtain) ----------
+   0.0 grid emerges · 0.35 card appears · 1.1 reflection sweeps · 1.2 portrait reveals · 1.0 lace extends ·
+   1.5 headline masks · 2.1 supporting gray text · then role, chips, buttons last */
+.js body::before{opacity:0;transition:opacity 1.4s ease}
+.js.grid-in body::before{opacity:1}
+.js .hcard-wrap{opacity:0;transform:scale(.9);filter:blur(10px);transition:opacity 1s .35s var(--ease),transform 1.2s .35s var(--ease),filter 1s .35s var(--ease)}
+.js .is-in .hcard-wrap{opacity:1;transform:none;filter:none}
+.js .hcard__photo{clip-path:inset(100% 0 0 0)}
+.js .hcard__photo img{transform:scale(1.18);transition:transform 1.6s 1.2s var(--ease)}
+.js .hcard__photo{transition:clip-path 1.1s 1.2s var(--ease)}
+.js .is-in .hcard__photo{clip-path:inset(0)}
+.js .is-in .hcard__photo img{transform:none}
+.js .lace__band{clip-path:inset(0 0 100% 0);transition:clip-path .9s 1s var(--ease)}
+.js .is-in .lace__band{clip-path:inset(0)}
+.js .lace__clip{opacity:0;transition:opacity .4s 1.7s}
+.js .is-in .lace__clip{opacity:1}
+.js .is-in .hcard__shine::before{animation:shine 1.5s 1.1s var(--ease) 1 both}
+@keyframes shine{0%{opacity:0;left:-60%}15%{opacity:1}100%{opacity:0;left:130%}}
+.js .hero .mask__in{transition-delay:calc(1.5s + var(--i,0) * 130ms)}
+.js .hero [data-r]{transition-delay:calc(2.1s + var(--i,0) * 120ms)}
+/* after the first run, re-entries are quick */
+.hero-played.js .hero .mask__in{transition-delay:calc(var(--i,0) * 100ms + 60ms)}
+.hero-played.js .hero [data-r]{transition-delay:calc(var(--i,0) * 90ms + 120ms)}
+.hero-played.js .hcard-wrap,.hero-played.js .lace__band,.hero-played.js .hcard__photo,.hero-played.js .hcard__photo img,.hero-played.js .lace__clip{transition-delay:.05s}
+.hero-played.js .is-in .hcard__shine::before{animation:none}
+
+/* ---------- animated role: leave, then enter (never overlapping) ---------- */
+.role__w{transition:opacity .38s ease,transform .5s var(--ease),filter .38s ease}
+.role__w.is-on{opacity:1;transform:none;filter:none;transition-delay:.22s}
+.role__w.is-off{opacity:0;transform:translate3d(0,-70%,0);filter:blur(4px);transition-delay:0s}
