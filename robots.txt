@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /tools/
+Disallow: /backend/
+
+Sitemap: https://kerviii.github.io/Kerviii-Personal-Portfolio-V2/sitemap.xml
