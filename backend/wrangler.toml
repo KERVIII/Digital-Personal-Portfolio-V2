@@ -1,0 +1,16 @@
+name = "kerviii-commission"
+main = "worker.js"
+compatibility_date = "2024-11-01"
+
+# Optional but recommended: rate limiting + duplicate protection.
+# Create with: npx wrangler kv namespace create RATE   then paste the id below.
+# [[kv_namespaces]]
+# binding = "RATE"
+# id = "<your-kv-namespace-id>"
+
+# Secrets (never commit them):
+#   npx wrangler secret put TELEGRAM_BOT_TOKEN
+#   npx wrangler secret put TELEGRAM_CHAT_ID
+# Non-secret variable (comma-separated list of exact origins that may call this endpoint):
+[vars]
+ALLOWED_ORIGIN = "https://kerviii.github.io"
