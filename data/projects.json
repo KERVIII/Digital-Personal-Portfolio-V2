@@ -1,0 +1,59 @@
+{
+  "projects": [
+    {
+      "id": "nexus-vanguard",
+      "name": "Nexus Vanguard",
+      "version": "1.0",
+      "author": "Kerviii",
+      "category": "Android Gaming Module",
+      "status": "coming-soon",
+      "summary": "A gaming-focused Android module for managing background activity around the gaming experience.",
+      "description": "Nexus Vanguard is an Android gaming module designed to manage background activity during gameplay while maintaining system stability and existing device functionality.",
+      "technologies": ["Shell", "WebUI", "HTML", "CSS", "JavaScript"],
+      "features": [
+        "WebUI with Home, Whitelist, Profiles and About screens",
+        "Service status verified through /proc, with distinct Running, Stopped, Duplicate, Missing, Unusable, Disabled and Unknown states",
+        "Whitelist editing with validation, backup, and atomic write with rollback",
+        "Saved whitelist profiles",
+        "Existing whitelist preserved and backed up on update",
+        "arm64-v8a only; uninstall removes only what the module can prove it owns"
+      ],
+      "notes": ["Host-tested only. No Android device testing has been performed yet."],
+      "credit": "Derived from GameMode V2.0 (author field: kaminarich). Bundled binaries are included unmodified.",
+      "repository": { "status": "coming-soon", "url": null },
+      "image": null
+    },
+    {
+      "id": "ayunda-rusdi-refork",
+      "name": "Ayunda Rusdi Refork",
+      "version": null,
+      "author": "Kerviii",
+      "category": "Android / WebUI",
+      "status": "available",
+      "summary": "Repository on GitHub.",
+      "description": null,
+      "technologies": [],
+      "features": [],
+      "notes": [],
+      "credit": null,
+      "repository": { "status": "available", "url": "https://github.com/KERVIII/Ayunda-Rusdi-Refork" },
+      "image": null
+    },
+    {
+      "id": "iobattery-huashu-web",
+      "name": "IoBattery Huashu Web",
+      "version": null,
+      "author": "Kerviii",
+      "category": "WebUI / Android",
+      "status": "available",
+      "summary": "Repository on GitHub.",
+      "description": null,
+      "technologies": [],
+      "features": [],
+      "notes": [],
+      "credit": null,
+      "repository": { "status": "available", "url": "https://github.com/KERVIII/IoBattery-Huashu-Web" },
+      "image": null
+    }
+  ]
+}

@@ -1,0 +1,96 @@
+{
+  "groups": [
+    {
+      "id": "android",
+      "title": "Android",
+      "items": [
+        {
+          "name": "Modules",
+          "icon": "android"
+        },
+        {
+          "name": "Shell",
+          "icon": "terminal"
+        },
+        {
+          "name": "ADB",
+          "icon": "usb"
+        },
+        {
+          "name": "Root",
+          "icon": "shield"
+        }
+      ]
+    },
+    {
+      "id": "web",
+      "title": "Web",
+      "items": [
+        {
+          "name": "HTML",
+          "icon": "code"
+        },
+        {
+          "name": "CSS",
+          "icon": "layers"
+        },
+        {
+          "name": "JavaScript",
+          "icon": "bolt"
+        },
+        {
+          "name": "WebUI",
+          "icon": "window"
+        }
+      ]
+    }
+  ],
+  "focus": [
+    "Performance",
+    "Responsiveness",
+    "Clean code"
+  ],
+  "expertise": [
+    {
+      "title": "Android Modules",
+      "text": "Modules, tweaks and tooling for your device.",
+      "icon": "android",
+      "tags": [
+        "Modules",
+        "Shell",
+        "ADB",
+        "Root"
+      ]
+    },
+    {
+      "title": "Websites & Applications",
+      "text": "Websites, applications and custom digital tools.",
+      "icon": "window",
+      "tags": [
+        "HTML",
+        "CSS",
+        "JavaScript"
+      ]
+    },
+    {
+      "title": "WebUI Development",
+      "text": "Responsive interfaces for WebViews and browsers.",
+      "icon": "layers",
+      "tags": [
+        "WebUI",
+        "HTML",
+        "CSS",
+        "JavaScript"
+      ]
+    },
+    {
+      "title": "Performance & Systems",
+      "text": "Storage, responsiveness and system behavior.",
+      "icon": "bolt",
+      "tags": [
+        "Shell",
+        "Root"
+      ]
+    }
+  ]
+}
